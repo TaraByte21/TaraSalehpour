@@ -13,7 +13,7 @@
     </globalBindings>
    <bindings schemaLocation="http://www.hl7.org/implement/standards/fhir/fhir-base.xsd" version="1.0">
         <schemaBindings>
-            <package name="edu.asu.bmi.cad.fhir_model_noDB"/>
+            <package name="edu.asu.bmi.cda.fhir"/>
         </schemaBindings>
         <bindings node="//xs:complexType[@name='Duration']">
             <class name="TimeDuration"/>
