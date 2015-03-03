@@ -22,5 +22,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="target/generated-sources/xjc/edu/asu/bmi/cda/fhir"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
