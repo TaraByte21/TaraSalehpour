@@ -30,8 +30,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-				<source>1.7</source>
-				<target>1.7</target>
+                <source>1.7</source> <!-- check your java versions: ls -l /System/Library/Frameworks/
+                                      JavaVM.framework/Versions/ -OR- ls -l /Library/Java/JavaVirtualMachines-->
+                <target>1.7</target>
 				</configuration>
 			</plugin>	
 			
@@ -74,6 +75,41 @@
 				</dependencies>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.jvnet.hyperjaxb3
+										</groupId>
+										<artifactId>
+											maven-hyperjaxb3-plugin
+										</artifactId>
+										<versionRange>
+											[0.5.6,)
+										</versionRange>
+										<goals>
+											<goal>generate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 	
 </project>
