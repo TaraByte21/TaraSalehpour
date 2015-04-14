@@ -1,10 +1,14 @@
 package edu.asu.bmi.cad591.skos;
 
 import java.io.FileOutputStream;
+import java.util.Set;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -22,14 +26,10 @@ public class OntologyManager {
 	//	OWLDataFactory – which allows to create new assertions to add to the OWLOntology.
 	// ---------------------------------------------------------------------------------		
 	public OWLOntology getPopulatedOntology(String owlFileName) throws Exception {	
-		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(
-				// the relative path to your file, where "/" corresponds to
-				//src/main/resources
-				manager.getClass().getResourceAsStream("/task1_SKOS.owl")
-				);
-		OWLDataFactory factory = manager.getOWLDataFactory();
-		manager.saveOntology(ontology, System.err);
+		manager = OWLManager.createOWLOntologyManager();
+		factory = manager.getOWLDataFactory();
+		ontology = manager.loadOntologyFromOntologyDocument(this.getClass().getResourceAsStream(owlFileName));
+
 		return(ontology);
 	}
 
@@ -51,4 +51,15 @@ public class OntologyManager {
 		manager.saveOntology(ontology,System.out);
 		manager.saveOntology(ontology, new FileOutputStream(outOwlFileName));
 	}
+	 public boolean checkRelationship( String subject, String predicate, String object ) {
+	        OWLNamedIndividual sub = factory.getOWLNamedIndividual( IRI.create( subject ) );
+	        OWLNamedIndividual obj = factory.getOWLNamedIndividual( IRI.create( object ) );
+	        OWLObjectProperty prp = factory.getOWLObjectProperty( IRI.create( predicate ) );
+
+	        Set<OWLObjectPropertyAssertionAxiom> info = ontology.getObjectPropertyAssertionAxioms( sub );
+	        OWLObjectPropertyAssertionAxiom testX = factory.getOWLObjectPropertyAssertionAxiom( prp, sub, obj );
+
+	        return( info.contains( testX ) );
+	}
+
 }

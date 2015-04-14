@@ -25,7 +25,7 @@ public class SNOMED_ObservableEntity {
 		public static void main(String[] args) throws Exception {
 			
 			OntologyManager om = new OntologyManager();			
-			om.getPopulatedOntology("/task1_SKOSIn.owl");
+			om.getPopulatedOntology("/task1_SKOS.owl");
 			
 			// ---------------------------------------------------------------------------------
 			//	SNOWMED Root Concept: Observable entity
@@ -81,7 +81,7 @@ public class SNOMED_ObservableEntity {
 			OWLObjectPropertyAssertionAxiom opa = factory.getOWLObjectPropertyAssertionAxiom(
 					factory.getOWLObjectProperty( IRI.create(prefix+"subTypeOf")), //property
 					factory.getOWLNamedIndividual( IRI.create(prefix+"broaderTransitive")), //subject
-					factory.getOWLNamedIndividual(IRI.create(prefix+"Observable entity ")) //object
+					factory.getOWLNamedIndividual(IRI.create(prefix+"Observable entity")) //object
 					);
 		    //adding Vital sign  isA subTypeOf Observable entity 
 		    OWLObjectPropertyAssertionAxiom opa1 = factory.getOWLObjectPropertyAssertionAxiom(
