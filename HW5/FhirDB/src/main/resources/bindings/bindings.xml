@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb"
+          xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+          xmlns:fhir="http://hl7.org/fhir"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+          version="2.1">
+	  xmlns:hj="http://hyperjaxb3.jvnet.org/ejb/schemas/customizations"
+
+    <globalBindings generateValueClass="true" localScoping="toplevel">
+        <xjc:simple/> <!-- xjc -->
+        <xjc:serializable/>
+        <javaType name="java.util.Date" xmlType="fhir:dateTime-primitive"/>
+    </globalBindings>
+   
+   <bindings schemaLocation="http://www.hl7.org/implement/standards/fhir/fhir-base.xsd" version="1.0">
+        <schemaBindings>
+            <package name="edu.asu.bmi.cda.fhir"/>
+        </schemaBindings>
+        <bindings node="//xs:complexType[@name='Duration']">
+            <class name="TimeDuration"/>
+        </bindings>
+        <bindings node="//xs:complexType[@name='Range']">
+            <class name="QuantityRange"/>
+        </bindings>        
+    </bindings>
+    
+    <bindings schemaLocation="http://www.hl7.org/implement/standards/fhir/condition.xsd" version="1.0">
+        <bindings node="//xs:complexType[@name='Condition']">
+            <class name="HealthCondition"/>
+        </bindings>
+    </bindings>	
+	
+	<bindings schemaLocation="http://www.hl7.org/implement/standards/fhir/fhir-xhtml.xsd" version="1.0">
+	    <bindings node="//xs:attributeGroup[@name='i18n']">
+	        <bindings node=".//xs:attribute[@name='lang']">
+	            <property name="language"/>
+	        </bindings>
+	    </bindings>
+		<bindings node="//xs:element[@name='bdo']">
+			<bindings node=".//xs:attribute[@name='lang']">
+				<property name="language"/>
+			</bindings>
+		</bindings>
+	</bindings>
+	<bindings schemaLocation="http://www.hl7.org/implement/standards/fhir/fhir-xhtml.xsd" node="/xs:schema">
+		<schemaBindings>
+			<package name="w3._1999.xhtml" />
+		</schemaBindings>
+	</bindings>
+	<bindings schemaLocation="http://www.hl7.org/implement/standards/fhir/fhir-xhtml.xsd" node="/xs:schema">
+		<schemaBindings>
+			<package name="w3._1999.xhtml" />
+		</schemaBindings>
+		<hj:ignored-package name="w3._1999.xhtml"/>
+	</bindings>	
+	
+</bindings>
+
+
