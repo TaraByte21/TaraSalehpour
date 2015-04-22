@@ -1,0 +1,148 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+
+  <artifactId>FhirDB</artifactId>
+  <packaging>pom</packaging>
+
+    <parent>
+        <groupId>edu.asu.bmi.cda</groupId>
+        <artifactId>HW5</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../HW5</relativePath>
+    </parent>
+
+  <name>FhirDB</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.jaxb2_commons</groupId>
+			<artifactId>jaxb2-basics</artifactId>
+			<version>0.6.5</version>
+		</dependency>
+		<dependency>
+	    	<groupId>org.hibernate.javax.persistence</groupId>
+	    	<artifactId>hibernate-jpa-2.1-api</artifactId>
+	    	<version>1.0.0.Final</version>
+		</dependency>
+		<dependency>
+	    	<groupId>org.jvnet.hyperjaxb3</groupId>
+	    	<artifactId>hyperjaxb3-ejb-runtime</artifactId>
+	    	<version>0.5.6</version>
+		</dependency>
+			<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.8.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.8.Final</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>	
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+                <source>1.7</source> <!-- check your java versions: ls -l /System/Library/Frameworks/
+                                      JavaVM.framework/Versions/ -OR- ls -l /Library/Java/JavaVirtualMachines-->
+                <target>1.7</target>
+				</configuration>
+			</plugin>	
+			
+			<plugin>
+			    <groupId>org.jvnet.hyperjaxb3</groupId>
+			    <artifactId>maven-hyperjaxb3-plugin</artifactId>
+			    <version>0.5.6</version>
+			    <executions>
+			        <execution>
+			            <id>generate-type</id>
+			            <phase>generate-sources</phase>
+			            <goals>
+			                <goal>generate</goal>
+			            </goals>
+			            <configuration>
+			                <variant>jpa2</variant>   <!-- ORM related configuration -->
+			                <schemas>
+			                    <schema>
+			                        <url>http://www.hl7.org/implement/standards/fhir/fhir-base.xsd</url>                                  
+			                    </schema>
+			                </schemas>
+			                <bindingDirectory>src/main/resources/bindings</bindingDirectory>                
+						<!-- see below! -->
+				        <persistenceXml>${basedir}/src/main/resources/persistence-template-hibernate.xml</persistenceXml>
+			                <args>
+			                    <arg>-extension</arg>  <!-- enable plugins. Here it is an arg rather than an elem -->
+							    	<arg>-Xfluent-api</arg>
+				                </args>
+				            </configuration>
+				        </execution>
+				    </executions>
+				    <dependencies>  <!-- notice that this plugin uses generic 'dependencies' to include plugins -->
+				        <dependency>
+				            <groupId>org.jvnet.jaxb2_commons</groupId>
+				            <artifactId>jaxb2-fluent-api</artifactId>
+				            <version>3.0</version>
+				        </dependency>
+				    </dependencies>
+				</plugin>		
+	
+		</plugins>
+			
+			
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.jvnet.jaxb2_commons
+										</groupId>
+										<artifactId>
+											maven-jaxb2-basics-plugin
+										</artifactId>
+										<versionRange>
+											[0.6.5,)
+										</versionRange>
+										<goals>
+											<goal>generate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+			
+	</build>  
+  
+</project>
