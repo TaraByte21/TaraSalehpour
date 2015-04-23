@@ -20,7 +20,6 @@ import edu.asu.bmi.cda.fhir.Patient;
 
 public class patientMarshallTest {
 
-	@SuppressWarnings("restriction")
 	@Test
 	public void testMarshaller() throws Exception {
 

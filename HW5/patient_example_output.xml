@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Patient xmlns="http://hl7.org/fhir" xmlns:ns2="http://www.w3.org/1999/xhtml"><text><status value="generated"/><ns2:div>
+      <ns2:p>
+        <ns2:b>Generated Narrative</ns2:b>
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>identifier</ns2:b>: BSN = 123456789 (official), BSN = 123456789 (official)
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>name</ns2:b>: Roel(official)
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>telecom</ns2:b>: ph: +31612345678(mobile), ph: +31201234567(home)
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>gender</ns2:b>: 
+        <ns2:span title="Codes: {http://snomed.info/sct 248153007}, {http://hl7.org/fhir/v3/AdministrativeGender          M}">Male</ns2:span>
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>birthDate</ns2:b>: 13-Mar 1960
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>deceased[x]</ns2:b>: false
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>address</ns2:b>: Bos en Lommerplein 280 Amsterdam 1055RW NLD (home)
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>maritalStatus</ns2:b>: 
+        <ns2:span title="Codes: {http://snomed.info/sct 36629006}, {http://hl7.org/fhir/v3/MaritalStatus M}">Legally married</ns2:span>
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>multipleBirth[x]</ns2:b>: false
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>photo</ns2:b>: 
+      </ns2:p>
+      <ns2:h3>Contacts</ns2:h3>
+      <ns2:table class="grid"><ns2:tr><ns2:td>
+            <ns2:b>Relationship</ns2:b>
+          </ns2:td><ns2:td>
+            <ns2:b>Name</ns2:b>
+          </ns2:td><ns2:td>
+            <ns2:b>Telecom</ns2:b>
+          </ns2:td><ns2:td>
+            <ns2:b>Address</ns2:b>
+          </ns2:td><ns2:td>
+            <ns2:b>Gender</ns2:b>
+          </ns2:td><ns2:td>
+            <ns2:b>Organization</ns2:b>
+          </ns2:td></ns2:tr><ns2:tr><ns2:td>
+            <ns2:span title="Codes: {http://snomed.info/sct 127850001}, {http://hl7.org/fhir/patient-contact-relationship              partner}">Wife</ns2:span>
+          </ns2:td><ns2:td>Ariadne Bor-Jansma</ns2:td><ns2:td>ph: +31201234567(home)</ns2:td><ns2:td> </ns2:td><ns2:td> </ns2:td><ns2:td> </ns2:td></ns2:tr></ns2:table>
+      <ns2:p>
+        <ns2:b>communication</ns2:b>: 
+        <ns2:span title="Codes: {urn:std:iso:639-1 nl-NL}">Dutch</ns2:span>
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>managingOrganization</ns2:b>: AUMC
+      </ns2:p>
+      <ns2:p>
+        <ns2:b>active</ns2:b>: true
+      </ns2:p>
+    </ns2:div></text><identifier><use value="official"/><label value="BSN"/><system value="urn:oid:2.16.840.1.113883.2.4.6.3"/><value value="123456789"/></identifier><identifier><use value="official"/><label value="BSN"/><system value="urn:oid:2.16.840.1.113883.2.4.6.3"/><value value="123456789"/></identifier><name><use value="official"/><text value="Roel"/><family value="Bor"/><given value="Roelof Olaf"/><prefix value="Drs."/><suffix value="PDEng."/></name><telecom><system value="phone"/><value value="+31612345678"/><use value="mobile"/></telecom><telecom><system value="phone"/><value value="+31201234567"/><use value="home"/></telecom><gender><coding><system value="http://snomed.info/sct"/><code value="248153007"/><display value="Male"/></coding><coding><system value="http://hl7.org/fhir/v3/AdministrativeGender"/><code value="M"/><display value="Male"/></coding></gender><birthDate/><deceasedBoolean value="false"/><address><use value="home"/><line value="Bos en Lommerplein 280"/><city value="Amsterdam"/><zip value="1055RW"/><country value="NLD"/></address><maritalStatus><coding><system value="http://snomed.info/sct"/><code value="36629006"/><display value="Legally married"/></coding><coding><system value="http://hl7.org/fhir/v3/MaritalStatus"/><code value="M"/></coding></maritalStatus><multipleBirthBoolean value="false"/><photo><contentType value="image/jpeg"/><url value="binary/@f006"/></photo><contact><relationship><coding><system value="http://snomed.info/sct"/><code value="127850001"/><display value="Wife"/></coding><coding><system value="http://hl7.org/fhir/patient-contact-relationship"/><code value="partner"/></coding></relationship><name><use value="usual"/><text value="Ariadne Bor-Jansma"/></name><telecom><system value="phone"/><value value="+31201234567"/><use value="home"/></telecom></contact><communication><coding><system value="urn:std:iso:639-1"/><code value="nl-NL"/><display value="Dutch"/></coding></communication><managingOrganization><reference value="Organization/f201"/><display value="AUMC"/></managingOrganization><active value="true"/></Patient>
